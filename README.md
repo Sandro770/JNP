@@ -1,2 +1,2 @@
 # MicroWarehouse
-Project made as a part of Language and programming tools II course at the University of Warsaw (microservises group)
+Project made as a part of Languages and Programming Tools II course at the University of Warsaw (microservises group).
