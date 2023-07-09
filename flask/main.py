@@ -40,7 +40,7 @@ def index():
 
 @app.route('/api/products/<int:pk>/buy', methods=['POST'])
 def buy(id):
-    pass
+    pass  # to fix
 
 
 if __name__ == '__main__':
