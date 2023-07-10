@@ -17,6 +17,6 @@ For the admin app: (Django, default port 8000)
 6. Place in the .env files the URL from AMQP Details 
 7. python3 manage.py runserver (to start the django server)
 
-For the main app: (Flask, default port 5000)
+For the Flask app: (Flask, default port 5000)
 1. Install requirements from requirements.txt
 2. python3 main.py (to start the flask server)
