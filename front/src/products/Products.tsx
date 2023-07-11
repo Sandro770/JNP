@@ -25,8 +25,8 @@ const Products: React.FC = () => {
   }, []);
 
   const del = async (id: number) => {
-    if (!window.confirm('Are you sure you want to delete this product?')) {
-      await fetch(`http://localhost:8000/api/products/${id}`, {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+        await fetch(`http://localhost:8000/api/products/${id}`, {
         method: 'DELETE'
       });
       setProducts(products.filter((p: Product) => p.id !== id));
