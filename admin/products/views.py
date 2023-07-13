@@ -4,13 +4,12 @@ from rest_framework.views import APIView
 from .models import Product
 from .serializers import ProductSerializer
 from .producer import publish
-
+import requests
 
 class ProductViewSet(viewsets.ModelViewSet):
     def list(self, request):  # /api/products/ - GET
-        products = Product.objects.all()
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+        resp = requests.get("http://localhost:5000/api/products")
+        return Response(resp.json())
 
     def create(self, request):  # /api/products/ - POST
         serializer = ProductSerializer(data=request.data)

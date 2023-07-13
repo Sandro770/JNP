@@ -19,4 +19,20 @@ For the admin app: (Django, default port 8000)
 
 For the Flask app: (Flask, default port 5000)
 1. Install requirements from requirements.txt
-2. python3 main.py (to start the flask server)
+2. Copy AMQP URL and paste it to the .env file flask folder
+3. python3 main.py (to start the flask server)
+4. python3 consumer.py (to start the consumer)
+
+
+Creating docker images:
+sudo docker build -t front_image .
+sudo docker build -t main_db_image .
+sudo docker build -t admin_image .
+
+Importing docker image from tar file:
+docker load < my-image.tar
+
+Running docker containers:
+sudo docker run -p 3000:3000 front_image
+sudo docker run -p 5000:5000 main_db_image
+sudo docker run --network host admin_image
