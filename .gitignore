@@ -1,3 +1,4 @@
 .idea
 admin/.env
 flask/.env
+/admin/products/.env
