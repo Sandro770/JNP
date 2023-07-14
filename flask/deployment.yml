@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deployment
+  labels:
+    name: flask-app-deployment
+    app: demo-jnp-app-flask
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-jnp-app-flask
+  template:
+    metadata:
+      labels:
+        app: demo-jnp-app-flask
+    spec:
+      containers:
+        - name: flask-app
+          image: kondrado1234990/jnp2-microservices-flask
+          ports:
+            - containerPort: 5000

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-app-deployment
+  labels:
+    name: front-app-deployment
+    app: demo-jnp-app-front
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-jnp-app-front
+  template:
+    metadata:
+      labels:
+        app: demo-jnp-app-front
+    spec:
+      containers:
+        - name: front-app
+          image: kondrado1234990/jnp2-microservices-front
+          ports:
+            - containerPort: 3000

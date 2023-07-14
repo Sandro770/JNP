@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-app-deployment
+  labels:
+    name: admin-app-deployment
+    app: demo-jnp-app-admin
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-jnp-app-admin
+  template:
+    metadata:
+      labels:
+        app: demo-jnp-app-admin
+    spec:
+      containers:
+        - name: admin-app
+          image: kondrado1234990/jnp2-microservices-admin
+          ports:
+            - containerPort: 8000

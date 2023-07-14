@@ -1,12 +1,12 @@
 # MicroWarehouse
-Project made as a part of Languages and Programming Tools II course at the University of Warsaw (microservises group).
+Project made as a part of Languages and Programming Tools II course at the University of Warsaw (microservices group).
 
 Before You start the front app do the following: (React Typescript, default port 3000)
 1. cd front
 2. npm install -g create-react-app
 3. npm install react-scripts
 4. npm install react-router-dom @types/react-router-dom
-5. npm start (to start the react app)
+5. npm start (to start the React app)
 
 For the admin app: (Django, default port 8000)
 1. Install requirements from requirements.txt
@@ -36,3 +36,7 @@ Running docker containers:
 sudo docker run -p 3000:3000 front_image
 sudo docker run -p 5000:5000 main_db_image
 sudo docker run --network host admin_image
+
+Additional docker commands: 
+docker build -t kondrado1234990/jnp2-microservices-{name(admin / flask / front)} .
+docker push kondrado1234990/jnp2-microservices-{name(admin / flask / front)}
