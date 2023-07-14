@@ -25,18 +25,25 @@ For the Flask app: (Flask, default port 5000)
 
 
 Creating docker images:
+```
 sudo docker build -t front_image .
 sudo docker build -t main_db_image .
 sudo docker build -t admin_image .
+```
 
 Importing docker image from tar file:
+```
 docker load < my-image.tar
-
+```
 Running docker containers:
+```
 sudo docker run -p 3000:3000 front_image
 sudo docker run -p 5000:5000 main_db_image
 sudo docker run --network host admin_image
+```
 
 Additional docker commands: 
+```
 docker build -t kondrado1234990/jnp2-microservices-{name(admin / flask / front)} .
 docker push kondrado1234990/jnp2-microservices-{name(admin / flask / front)}
+```
