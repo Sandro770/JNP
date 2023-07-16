@@ -1,9 +1,10 @@
 import requests
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from sqlalchemy import UniqueConstraint
 from dataclasses import dataclass
+from producer import publish
 
 
 app = Flask(__name__)
@@ -25,6 +26,7 @@ class Product(db.Model):
     quantity = db.Column(db.Integer)
 
 
+@dataclass
 class ProductUser(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
@@ -41,6 +43,25 @@ def index():
 @app.route('/api/products/<int:pk>/buy', methods=['POST'])
 def buy(id):
     pass  # to fix
+
+
+@app.route('/api/products/<int:pk>/like', methods=['POST'])
+def like(id):
+    req = requests.get('http://0.0.0.0:8000/api/user')
+    json = req.json()
+    
+    try:
+        productUser = ProductUser(user_id=json['id'], product_id=id)
+        db.session.add(productUser)
+        db.session.commit()
+        
+        publish('product_liked', id)
+    except:
+        abort(400, 'You already liked this prodcut')
+
+    return jsonify({
+        'message': 'success'
+    })
 
 
 if __name__ == '__main__':
