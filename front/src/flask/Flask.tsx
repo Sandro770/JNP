@@ -55,7 +55,6 @@ const Main = () => {
                                                         </button>
                                                     </div>
                                                     <small className="text-muted">{p.likes} likes</small>
-                                                    <small className="text-muted">Price: {p.price}</small>
                                                 </div>
                                             </div>
                                         </div>
