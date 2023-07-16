@@ -11,7 +11,7 @@ import requests
 
 class ProductViewSet(viewsets.ModelViewSet):
     def list(self, request):  # /api/products/ - GET
-        resp = requests.get("http://0.0.0.0:5000/api/products")
+        resp = requests.get("http://localhost:5000/api/products")
         return Response(resp.json())
 
     def create(self, request):  # /api/products/ - POST

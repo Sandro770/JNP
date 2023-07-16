@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Menu from "./components/Menu";
 import Products from "./products/Products";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Main from "./flask/Flask";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
 
                         <BrowserRouter>
                             <Routes>
+                                <Route path='/' Component={Main}/>
                                 <Route path='/products' Component={Products}/>
                             </Routes>
                         </BrowserRouter>

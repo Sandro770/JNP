@@ -5,7 +5,7 @@ FROM node:14
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY package*.json /app/package*.json
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install -g create-react-app
@@ -13,10 +13,10 @@ RUN npm install react-scripts
 RUN npm install react-router-dom @types/react-router-dom
 
 # Copy the rest of the application code to the container
-COPY . /app
+COPY . .
 
 # Expose port 3000
-#EXPOSE 3000
+EXPOSE 3000
 
 # Start the React app
-#CMD ["npm", "start"]
+CMD ["npm", "start"]

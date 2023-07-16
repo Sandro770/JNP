@@ -4,4 +4,5 @@ export interface Product {
     quantity: number;
     price: number;
     owner: string;
+    likes: number;
 }

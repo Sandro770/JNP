@@ -17,7 +17,7 @@ const Products: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://0.0.0.0:8000/api/products');
+      const response = await fetch('http://localhost:8000/api/products');
       const data = await response.json();
       setProducts(data);
       console.log(data);
@@ -26,7 +26,7 @@ const Products: React.FC = () => {
 
   const del = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
-        await fetch(`http://0.0.0.0:8000/api/products/${id}`, {
+        await fetch(`http://localhost:8000/api/products/${id}`, {
         method: 'DELETE'
       });
       setProducts(products.filter((p: Product) => p.id !== id));
@@ -42,7 +42,7 @@ const Products: React.FC = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://0.0.0.0:8000/api/products', {
+      const response = await fetch('http://localhost:8000/api/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

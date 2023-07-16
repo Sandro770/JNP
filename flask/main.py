@@ -40,24 +40,24 @@ def index():
     return jsonify(Product.query.all())
 
 
-@app.route('/api/products/<int:pk>/buy', methods=['POST'])
+@app.route('/api/products/<int:id>/buy', methods=['POST'])
 def buy(id):
     pass  # to fix
 
 
-@app.route('/api/products/<int:pk>/like', methods=['POST'])
+@app.route('/api/products/<int:id>/like', methods=['POST'])
 def like(id):
-    req = requests.get('http://0.0.0.0:8000/api/user')
-    json = req.json()
+    # req = requests.get('http://localhost:8000/api/user')
+    # json = req.json()
     
-    try:
-        productUser = ProductUser(user_id=json['id'], product_id=id)
-        db.session.add(productUser)
-        db.session.commit()
+    # try:
+    #     productUser = ProductUser(user_id=json['id'], product_id=id)
+    #     db.session.add(productUser)
+    #     db.session.commit()
         
-        publish('product_liked', id)
-    except:
-        abort(400, 'You already liked this prodcut')
+    publish('product_liked', id)
+    # except:
+    #     abort(400, 'You already liked this prodcut')
 
     return jsonify({
         'message': 'success'
